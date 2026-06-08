@@ -1,0 +1,27 @@
+{
+  "name": "cv-screener",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google/genai": "^2.8.0",
+    "@sap/cds": "^9",
+    "dotenv": "^17.4.2",
+    "mammoth": "^1.12.0",
+    "pdf-parse": "^2.4.5",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4",
+    "cds-plugin-ui5": "^0.13.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-cv-screener-ui": "cds watch --open cvscreenerui/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/cv-screener-ui"
+  ]
+}

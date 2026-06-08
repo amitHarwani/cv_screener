@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:u="sap.ui.unified" xmlns:smartField="sap.ui.comp.smartfield">
+	<VBox id="vbox" core:require="{ handler: 'cvscreenerui/ext/fragment/CVScreening'}" class="sapUiSmallMargin">
+		<u:FileUploader 
+                  id="cvFileUploader"
+                  fileType="pdf,docx"
+                  placeholder="Choose your CV (PDF or DOCX)..."
+                  change="handler.onFileChange"
+                  width="400px"
+                  enabled="{ui>/isEditable}"
+            />
+	      <ProgressIndicator 
+                  id="uploadProgressBar"
+                  percentValue="0"
+                  displayValue="0%"
+                  showValue="true"
+                  state="Information"
+                  visible="false"
+                  width="400px"
+            />
+            <Button 
+                  id="uploadBtn"
+                  text="Upload and Process" 
+                  type="Emphasized" 
+                  enabled="false"
+                  press="handler.onUploadCV" 
+                  width="150px"
+            />
+            <Label id="skills_label" text="Skills" labelFor="taSkills" class="sapUiSmallMarginTop"/>
+            <TextArea id="taSkills" value="{Skills}" width="100%" rows="3" growing="true" editable="{ui>/isEditable}"/>
+
+            <Label id="ai_summary_label" text="AI Summary" labelFor="taAISummary" class="sapUiSmallMarginTop"/>
+            <TextArea id="taAISummary" value="{AISummary}" width="100%" rows="5" growing="true" editable="{ui>/isEditable}"/>
+      </VBox>
+</core:FragmentDefinition>
