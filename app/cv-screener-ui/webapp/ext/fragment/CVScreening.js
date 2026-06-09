@@ -85,9 +85,13 @@ sap.ui.define([
                             { $PropertyPath: "YearsOfExperience" },
                             { $PropertyPath: "CurrentRole" },
                             { $PropertyPath: "AISummary" },
-                            { $PropertyPath: "FileName" }
+                            { $PropertyPath: "FileName" },
+                            { $PropertyPath: "CVText" }
                         ]).then(() => {
                             MessageToast.show("Candidate profile updated with AI-extracted details!");
+                            // Displaying the extracted CV text
+                            this.byId("taExtractedCV").setVisible(true);
+                            this.byId("extracted_cv_label").setVisible(true);
                         }).catch((oError) => {
                             console.error("Failed to refresh candidate side effects:", oError);
                         });

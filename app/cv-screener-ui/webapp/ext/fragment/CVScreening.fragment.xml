@@ -30,5 +30,8 @@
 
             <Label id="ai_summary_label" text="AI Summary" labelFor="taAISummary" class="sapUiSmallMarginTop"/>
             <TextArea id="taAISummary" value="{AISummary}" width="100%" rows="5" growing="true" editable="{ui>/isEditable}"/>
+            
+            <Label id="extracted_cv_label" text="CV Text" labelFor="taAISummary" class="sapUiSmallMarginTop" visible="false"/>
+            <TextArea id="taExtractedCV" value="{CVText}" width="100%" rows="5" growing="true" editable="false" visible="false"/>
       </VBox>
 </core:FragmentDefinition>
