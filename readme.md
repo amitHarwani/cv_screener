@@ -2,6 +2,11 @@
 
 This is an AI-powered CV screening application built using SAP CAP (Cloud Application Programming Model). Users can create or update candidate records manually, or upload a CV file for AI analysis and automated data extraction.
 
+## Production Link
+Note: The CV Upload may fail, as the free-tier for Gemini API is being used. 
+
+https://e0f9f62ctrial-dev-cv-screener-srv.cfapps.us10-001.hana.ondemand.com/cv-screener-ui/webapp/index.html
+
 ## Getting Started
 
 1. **Clone the repository**:
@@ -13,12 +18,21 @@ git clone https://github.com/amitHarwani/cv_screener
 - `GEMINI_API_KEY`: Your Gemini API Key
 - `GEMINI_MODEL`: The AI model to use for CV analysis
 
+3. **Install dependencies**
+```bash
+npm install
+```
 3. **Run the application**
 ```bash
 cds watch
 ```
-
+4. **Visit the application at http://localhost:4004/cvscreenerui/index.html?sap-ui-xx-viewCache=false**
 ## Backend Overview
+
+### Flow
+1. The List Report Page is displayed by default, click on **Create** to add a candidate.
+2. On the Object Page, either upload the CV, which auto-fills all the fields and also displays the extracted text from the document, or fill in the fields manually. Note, after uploading the CV, the user can update the fields manually as well.
+3. Clicking on any Candidate on the List Report Page would display their Object Page, click on Edit here to update the candidate details, the form behavior in this section is similar to the Create section. 
 
 The backend is implemented under the `srv/` and `db/` folders.
 
