@@ -1,9 +1,9 @@
-import cds from "@sap/cds"
-import {Readable} from "stream"
-import { analyzeCV, extractCVText, saveFileLocally, streamToBuffer } from "./utils/cvutils.js";
+const cds = require("@sap/cds")
+const {Readable} = require("stream")
+const { analyzeCV, extractCVText, saveFileLocally, streamToBuffer } = require("./utils/cvutils.js");
 
 
-export default class CVService extends cds.ApplicationService {
+module.exports = class CVService extends cds.ApplicationService {
     init() {
         const {SELECT, UPDATE} = cds.ql
 

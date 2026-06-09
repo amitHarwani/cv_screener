@@ -1,10 +1,10 @@
-import {PDFParse} from 'pdf-parse'
-import {z} from "zod"
-import mammoth from 'mammoth'
-import path from 'path';
-import fs from "fs/promises"
-import { getGeminiInstance } from './llm.js';
-export const extractCVText = async (fileType, buffer) => {
+const {PDFParse} = require('pdf-parse')
+const {z} = require("zod")
+const mammoth = require('mammoth')
+const path = require('path');
+const fs = require("fs/promises")
+const { getGeminiInstance } = require('./llm.js');
+module.exports.extractCVText = async (fileType, buffer) => {
     /* Extract CV text depending on the file type */
     if (fileType.includes('pdf')) {
         const parser = new PDFParse({data: buffer})
@@ -20,7 +20,7 @@ export const extractCVText = async (fileType, buffer) => {
     }
 }
 
-export const streamToBuffer = async (stream) => {
+module.exports.streamToBuffer = async (stream) => {
     /* Convert stream to buffer list */
     return new Promise((resolve, reject) => {
         const chunks = [];
@@ -30,7 +30,7 @@ export const streamToBuffer = async (stream) => {
     });
 };
 
-export const saveFileLocally = async (candidateId, buffer, fileType) => {
+module.exports.saveFileLocally = async (candidateId, buffer, fileType) => {
     /* Saving the file locally, in local_cv_store directory */
     const uploadDir = path.join(process.cwd(), 'local_cv_store')
 
@@ -59,7 +59,7 @@ const LLM_CV_RESPONSE_SCHEMA = z.object({
     CurrentRole: z.string().default(""),
     AISummary: z.string().default("")
 })
-export const analyzeCV = async(cvText, maxRetries = 2) => {
+module.exports.analyzeCV = async(cvText, maxRetries = 2) => {
     const gemini = getGeminiInstance()
     const prompt = `
     Extract the following details from the provided CV text.

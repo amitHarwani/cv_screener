@@ -1,9 +1,9 @@
-import {GoogleGenAI} from '@google/genai';
-import dotenv from 'dotenv'
+const {GoogleGenAI} = require('@google/genai');
+const dotenv = require('dotenv')
 dotenv.config()
 let instance = null;
 
-export const getGeminiInstance = () => {
+module.exports.getGeminiInstance = () => {
     /* Singleton instance of Gemini */
     if(instance){
         return instance
