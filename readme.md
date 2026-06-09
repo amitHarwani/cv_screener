@@ -3,7 +3,7 @@
 This is an AI-powered CV screening application built using SAP CAP (Cloud Application Programming Model). Users can create or update candidate records manually, or upload a CV file for AI analysis and automated data extraction.
 
 ## Production Link
-Note: The CV Upload may fail, as the free-tier for Gemini API is being used. 
+Note: The CV Upload may fail at times, as the free-tier for Gemini API is being used. 
 
 https://e0f9f62ctrial-dev-cv-screener-srv.cfapps.us10-001.hana.ondemand.com/cv-screener-ui/webapp/index.html
 
