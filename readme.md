@@ -49,7 +49,7 @@ When a request contains `req.data.Content`, the custom handler:
 - streams CV bytes into a buffer
 - saves the CV file locally under `local_cv_store/`
 - extracts text from the uploaded PDF or DOCX file
-- sends the extracted text to the Gemini AI analysis function
+- sends the extracted text to the Gemini AI analysis function, which returns a structured JSON output, validated using Zod Schema, with retries implemented when there are errors.
 - updates the candidate record with AI-populated fields
 
 This custom logic allows the app to treat the file upload as an `UPDATE` of the candidate's media content while still using the CAP service layer.
